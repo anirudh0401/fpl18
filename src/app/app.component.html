@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark header">
+    <a class="navbar-brand" href="#">FIFA 18</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav" routerLinkActive="active">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="signup">Signup</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="makeprediction">Make Prediction</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="previousprediction">Previous Prediction</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" routerLink="">Actual Scores</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="">Config</a>
+            </li> -->
+            <li class="nav-item">
+                <a class="nav-link" routerLink="predictionarchive">Prediction Archive</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" routerLink="">General Info</a>
+            </li> -->
+
+        </ul>
+    </div>
+</nav>
+<div style="height:65px;"></div>
+<toaster-container></toaster-container>
+<router-outlet></router-outlet>

@@ -1,0 +1,62 @@
+<div class="bodycontent">
+  <form [formGroup]="myGroup">
+    <div class="select">
+      <div class="form-group example-container">
+        <mat-form-field>
+          <mat-select placeholder="Match" name="Match" [formControl]="MatchId" (ngModelChange)="getpredictionArchive()" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let item of matches" [value]="item.MatchId">
+              {{item.Date}} - {{item.TeamA}} vs {{item.TeamB}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="MatchId.hasError('required')">Please choose a winner</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+  <br/>
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 table table-hover table-striped">
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="MatchWinner">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Winner </th>
+      <td mat-cell *matCellDef="let element"> {{element.MatchWinner}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="GoalDifference">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Goal Difference </th>
+      <td mat-cell *matCellDef="let element"> {{element.GoalDifference}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="TotalGoals">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Goals </th>
+      <td mat-cell *matCellDef="let element"> {{element.TotalGoals}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="TotalCards">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Total Cards </th>
+      <td mat-cell *matCellDef="let element"> {{element.TotalCards}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ManOfMatch">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Man Of Match </th>
+      <td mat-cell *matCellDef="let element"> {{element.ManOfMatch}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ModifiedDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ModifiedDate </th>
+      <td mat-cell *matCellDef="let element"> {{element.ModifiedDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Points">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Points </th>
+      <td mat-cell *matCellDef="let element"> {{element.Points}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

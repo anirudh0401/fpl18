@@ -1,0 +1,15 @@
+table {
+    width: 100%;    
+    white-space: nowrap;
+  }
+  tbody, tfoot, thead, tr, th, td, table{
+    vertical-align: middle !important;
+  }
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+  td{
+    padding-right: 3px !important;
+  }
+

@@ -1,0 +1,24 @@
+table {
+    width: 100%;    
+    white-space: nowrap;
+  }
+  tbody, tfoot, thead, tr, th, td, table{
+    vertical-align: middle !important;
+  }
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+  td{
+    padding-right: 3px !important;
+  }
+
+.select
+{
+    background-color: #FFF;   
+    padding-top: 10px; 
+    padding-left: 10%; 
+    padding-right: 10%; 
+    border-radius: .5em;
+    border: solid 1px #DDD;
+}

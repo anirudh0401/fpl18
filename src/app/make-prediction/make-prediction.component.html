@@ -1,0 +1,66 @@
+<div class="bodycontent">
+  <form (ngSubmit)="makePrediction()" [formGroup]="myGroup">
+
+
+    <div class="form-group example-container">
+      <mat-form-field>
+        <mat-select placeholder="Match" name="Match" [formControl]="MatchId" required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let item of matches" [value]="item.MatchId">
+            {{item.Date}} - {{item.TeamA}} vs {{item.TeamB}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="MatchId.hasError('required')">Please choose a winner</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group example-container">
+      <mat-form-field>
+        <mat-select placeholder="Winner" name="Winner" [formControl]="Winner" required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let team of teams" [value]="team.TeamId">
+            {{ team.TeamName }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="Winner.hasError('required')">Please choose a winner</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group example-container">
+      <mat-form-field>
+        <input matInput placeholder="Goal Difference" [formControl]="GoalDifference" name="GoalDifference" type="number" required>
+        <mat-error *ngIf="GoalDifference.hasError('required')">Please enter no of Goal Difference</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group example-container">
+      <mat-form-field>
+        <input matInput placeholder="Goals" name="Goals" [formControl]="TotalGoals" type="number" required>
+        <mat-error *ngIf="TotalGoals.hasError('required')">Please enter no of Goals</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group example-container">
+        <mat-form-field>
+          <input matInput placeholder="Total Cards" name="TotalCards" [formControl]="TotalCards" type="number" required>
+          <mat-error *ngIf="TotalCards.hasError('required')">Please enter no of Total Cards</mat-error>
+        </mat-form-field>
+      </div>
+
+    <div class="form-group example-container">
+      <mat-form-field>
+        <mat-select placeholder="Man of Match" name="ManOfMatch" [formControl]="MOM" required>
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let player of players" [value]="player.PlayerId">
+            {{ player.PlayerName }} -> ({{player.TeamName}}) -> ({{player.PlayerType}})
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="MOM.hasError('required')">Please choose a player</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group example-container">
+      <button mat-raised-button type="submit" name="MakePrediction" color="primary">Make Prediction</button>
+    </div>
+  </form>
+</div>
